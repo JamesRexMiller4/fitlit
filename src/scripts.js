@@ -14,7 +14,7 @@ $(window).on('load', function () {
   makeUsers(userData);
 
   $('.header_h1_span').text(`${user.returnFirstName()}`);
-  $('.user_name').text(`${user.name}`);
+  $('.user_name').text(`${user.name.join(' ')}`);
   $('.user_email').text(`${user.email}`);
   $('.user_address').text(`${user.address}`);
   $('.user_stride_length').text(`${user.strideLength}`);
