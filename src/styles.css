@@ -1,172 +1,190 @@
 *,
 *::after,
 *::before {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background-image: linear-gradient(45deg, rgb(60, 220, 246) 0%, rgb(60, 220, 246) 23%,rgb(66, 89, 246) 23%, rgb(66, 89, 246) 25%,rgb(59, 253, 246) 25%, rgb(59, 253, 246) 34%,rgb(62, 187, 246) 34%, rgb(62, 187, 246) 64%,rgb(65, 122, 246) 64%, rgb(65, 122, 246) 74%,rgb(63, 155, 246) 74%, rgb(63, 155, 246) 100%)
-
+  background-image: linear-gradient(
+    45deg,
+    rgb(60, 220, 246) 0%,
+    rgb(60, 220, 246) 23%,
+    rgb(66, 89, 246) 23%,
+    rgb(66, 89, 246) 25%,
+    rgb(59, 253, 246) 25%,
+    rgb(59, 253, 246) 34%,
+    rgb(62, 187, 246) 34%,
+    rgb(62, 187, 246) 64%,
+    rgb(65, 122, 246) 64%,
+    rgb(65, 122, 246) 74%,
+    rgb(63, 155, 246) 74%,
+    rgb(63, 155, 246) 100%
+  );
 }
 
 header {
-   width: 100%;
-   margin: 0 auto;
-   margin-left: 20px;
-   
+  width: 100%;
+  margin: 0 auto;
+  margin-left: 20px;
 }
 
-main{
-    display: grid;
-    grid-template-areas: 
-    'user sleep hydro activity'
-    'average average average activity';
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: .7fr .9fr;
-    grid-gap: 20px;
+main {
+  display: grid;
+  grid-template-areas:
+    "user sleep hydro activity"
+    "average average average activity";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.7fr 0.9fr;
+  grid-gap: 20px;
 }
 
 section {
-    border: 10px solid;
-    border-color: #222E50;
-    background-color: #FFFFFF;
+  border: 10px solid;
+  border-color: #222e50;
+  background-color: #ffffff;
 }
 
 .section_activity {
-    grid-area: activity;
+  grid-area: activity;
 }
 
 .section_hydro {
-    grid-area: hydro;
+  grid-area: hydro;
 }
 
 .section_sleep {
-    grid-area: sleep;
+  grid-area: sleep;
 }
 
 .section_user {
-    grid-area: user;
+  grid-area: user;
+}
+
+.section_user > ul,
+.section_user li {
+  text-align: left;
 }
 
 h1 {
-    font-family: 'Nunito', sans-serif;
-    font-style: italic;
-    color: #222E50;
-    font-size: 100px;
+  font-family: "Nunito", sans-serif;
+  font-style: italic;
+  color: #222e50;
+  font-size: 100px;
 }
 
 h2 {
-    display: inline-block;
-    font-family: 'Nunito', sans-serif;
-    margin-left: 20px;
+  display: inline-block;
+  font-family: "Nunito", sans-serif;
+  margin-left: 20px;
 }
 
 h3 {
-    font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 p {
-    font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .header_h1_p {
-    font-family: 'Nunito', sans-serif;
-    color: #EFEFEF;
-    font-size: 50px;
-    font-weight: 600;
+  font-family: "Nunito", sans-serif;
+  color: #efefef;
+  font-size: 50px;
+  font-weight: 600;
 }
 
 ul {
-    text-align: center;
-    list-style-type: none;
-    padding: 0;
+  text-align: center;
+  list-style-type: none;
+  padding: 0;
 }
 
 li {
-    font-family: 'Nunito', sans-serif;
-    display: inline-block;
-    margin: 20px;
-    text-align: center;
+  font-family: "Nunito", sans-serif;
+  display: inline-block;
+  margin: 20px;
+  text-align: center;
 }
 
 .section_other_users {
-    grid-area: average;
-    justify-content: space-evenly;
+  grid-area: average;
+  justify-content: space-evenly;
 }
 
-.section_other_users, h2 {
-    display: block;
+.section_other_users,
+h2 {
+  display: block;
 }
 
 div {
-    display: inline-block;
-    border: 5px solid;
-    border-color: #222E50;
-    margin: auto;
-    padding: 20px;
-    text-align: center;
+  display: inline-block;
+  border: 5px solid;
+  border-color: #222e50;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
 }
 
 p {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .fas {
-    display: inline-block;
-    width: 10%;
-    height: 10%;
-    margin-left: 60px;
-    margin-bottom: -3px;
+  display: inline-block;
+  width: 10%;
+  height: 10%;
+  margin-left: 60px;
+  margin-bottom: -3px;
 }
 
 .fa-tint {
-    width: 5%;
-    height: 5%;
+  width: 5%;
+  height: 5%;
 }
 
 .fa-running {
-    width: 7%;
-    height: 7%;
-    margin-left: 30px;
+  width: 7%;
+  height: 7%;
+  margin-left: 30px;
 }
 
 .fa-user {
-    width: 6%;
-    height: 6%;
-    margin-left: 80px;
+  width: 6%;
+  height: 6%;
+  margin-left: 80px;
 }
 
 .fa-users {
-    width: 3%;
-    height: 3%;
-
+  width: 3%;
+  height: 3%;
 }
 
 #ui-datepicker-div {
-    background-color: white;
-    display: none;
-    flex-flow: column;  
+  background-color: white;
+  display: none;
+  flex-flow: column;
 }
 
-.ui-datepicker-title, .ui-datepicker-header {
-    border: none;
+.ui-datepicker-title,
+.ui-datepicker-header {
+  border: none;
 }
 
 span.ui-icon {
-    margin: 2px;
+  margin: 2px;
 }
 
 span.ui-icon:hover {
-    color: blue;
-    cursor: pointer;
+  color: blue;
+  cursor: pointer;
 }
 
-.div_chart{
-    margin-left: 20px;
+.div_chart {
+  margin-left: 20px;
 }
 
 .div_activity_section {
-    margin: 2%;
-    height: 25%;
-    width: 45%;
+  margin: 2%;
+  height: 25%;
+  width: 45%;
 }
