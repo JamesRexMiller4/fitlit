@@ -18,16 +18,34 @@ header {
 
 main{
     display: grid;
+    grid-template-areas: 
+    'user sleep hydro activity'
+    'average average average activity';
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-gap: 20px; 
+    grid-template-rows: .7fr .9fr;
+    grid-gap: 20px;
 }
 
 section {
     border: 10px solid;
     border-color: #222E50;
-    display: inline;
     background-color: #FFFFFF;
+}
+
+.section_activity {
+    grid-area: activity;
+}
+
+.section_hydro {
+    grid-area: hydro;
+}
+
+.section_sleep {
+    grid-area: sleep;
+}
+
+.section_user {
+    grid-area: user;
 }
 
 h1 {
@@ -61,8 +79,6 @@ p {
 ul {
     text-align: left;
     list-style-type: none;
-    /* margin: none;
-    text-decoration: none; */
     padding: 0;
 }
 
@@ -70,20 +86,15 @@ li {
     font-family: 'Nunito', sans-serif;
     display: inline-block;
     margin: 20px;
-    /* margin-left: -15px; */
 }
 
 .section_other_users {
-    display: flex;
-    grid-column-start: 1;
-    grid-column-end: 5;
-    justify-content: space-around;
-    height: 700px;
+    grid-area: average;
+    justify-content: space-evenly;
 }
 
 .section_other_users, h2 {
     display: block;
-    margin-bottom: 50px;
 }
 
 div {
@@ -93,6 +104,10 @@ div {
     margin: auto;
     padding: 20px;
     text-align: center;
+}
+
+p {
+    font-weight: bold;
 }
 
 .fas {
@@ -128,8 +143,19 @@ div {
 
 #ui-datepicker-div {
     display: none;
+    background-color: white;
+}
+
+#ui-datepicker-calednar {
+    padding: 2%;
 }
 
 .div_chart{
     margin-left: 20px;
+}
+
+.div_activity_section {
+    margin: 2%;
+    height: 25%;
+    width: 45%;
 }
