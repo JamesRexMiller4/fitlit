@@ -77,12 +77,134 @@ function eventHandler() {
 function graphs(date = '2019/09/15') {
   var ctx = document.getElementById("myChartHydro").getContext('2d');
   var myChartHydro = new Chart (ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
       labels: ["Day-1", "Day-2", "Day-3", "Day-4", "Day-5", "Day-6", "Day-7"],
       datasets: [{
         label: 'Ounces This Week',
         data: hydro.findFluidWeek(date),
+        backgroundColor: [
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(30, 178, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(54, 162, 235, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(30, 178, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero:true
+          }
+        }]
+      }
+    }
+});
+  
+
+  var ctx = document.getElementById("myChartStairsWeek").getContext('2d');
+  var myChartStairs = new Chart (ctx, {
+    type: 'line',
+    data: {
+      labels: ["Day-1", "Day-2", "Day-3", "Day-4", "Day-5", "Day-6", "Day-7"],
+      datasets: [{
+        label: 'Stairs this Week',
+        data: activity.stairsWeek(date),
+        backgroundColor: [
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(30, 178, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(30, 178, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero:true
+          }
+        }]
+      }
+    }
+  });
+
+
+  var ctx = document.getElementById("myChartStepsWeek").getContext('2d');
+  var myChartSteps = new Chart (ctx, {
+    type: 'bar',
+    data: {
+      labels: ["Day-1", "Day-2", "Day-3", "Day-4", "Day-5", "Day-6", "Day-7"],
+      datasets: [{
+        label: 'Steps this Week',
+        data: activity.stepsWeek(date),
+        backgroundColor: [
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(30, 178, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(153, 102, 255, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(30, 178, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero:true
+          }
+        }]
+      }
+    }
+});
+    
+  var ctx = document.getElementById("myChartMinActiveWeek").getContext('2d');
+  var myChartMinActive = new Chart (ctx, {
+    type: 'bar',
+    data: {
+      labels: ["Day-1", "Day-2", "Day-3", "Day-4", "Day-5", "Day-6", "Day-7"],
+      datasets: [{
+        label: 'Minutes Active',
+        data: activity.minActiveWeek(date),
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -113,132 +235,7 @@ function graphs(date = '2019/09/15') {
         }]
       }
     }
-});
-  
-
-  var ctx = document.getElementById("myChartStairsWeek").getContext('2d');
-  var myChartStairs = new Chart (ctx, {
-        type: 'bar',
-        data: {
-            labels: ["Day-1", "Day-2", "Day-3", "Day-4", "Day-5", "Day-6", "Day-7"],
-            datasets: [{
-                label: 'Stairs this Week',
-                data: activity.stairsWeek(date),
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(30, 178, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(30, 178, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-  
-                        beginAtZero:true
-                    }
-                }]
-            }
-        }
-    });
-
-
-    var ctx = document.getElementById("myChartStepsWeek").getContext('2d');
-    var myChartSteps = new Chart (ctx, {
-        type: 'bar',
-        data: {
-            labels: ["Day-1", "Day-2", "Day-3", "Day-4", "Day-5", "Day-6", "Day-7"],
-            datasets: [{
-                label: 'Steps this Week',
-                data: activity.stepsWeek(date),
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(30, 178, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(30, 178, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-  
-                        beginAtZero:true
-                    }
-                }]
-            }
-        }
-    });
-    
-    var ctx = document.getElementById("myChartMinActiveWeek").getContext('2d');
-    var myChartMinActive = new Chart (ctx, {
-        type: 'bar',
-        data: {
-            labels: ["Day-1", "Day-2", "Day-3", "Day-4", "Day-5", "Day-6", "Day-7"],
-            datasets: [{
-                label: 'Minutes Active',
-                data: activity.minActiveWeek(date),
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(30, 178, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(30, 178, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-  
-                        beginAtZero:true
-                    }
-                }]
-            }
-        }
-    });
+  });
 }
 
 
