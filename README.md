@@ -1,26 +1,20 @@
-# FitLit Starter Kit
+# FitLIT
 
-The details of this project are outline in [this project spec](http://frontend.turing.io/projects/fitlit.html).
+## Description
+FitLIT is an activity dashboard web app that displays a user profile, and presents information from datasets of hydration, sleep, and
+activity data entries (very much analagous to a FitBit, hence the name).
 
-## Setup
+This paired project's learning objectives were to implement TDD in the construction of our object classes and manipulating 
+multiple datasets. We worked with the Mocha and Chai testing framework running on Node.js. Working with multiple datasets, this project exercises fundamentals of Object Oriented Programming: SRP and Encapsulation, ratcheting up the complexities of coupled objects that rely on data from each other. Additionally, it was the first project that was provided without a comp, so UX/UI was our interpretation of how we would execute an app of this kind. 
 
-1. Within your group, decide on one person to have the project repository (repo) on their GitHub account. Then, that person should fork this repo - on the top right corner of this page, click the **Fork** button.
-1. Both memebers of the group should clone down the _forked_ repo. Since you don't want to name your project "activity-tracker-starter", you can use an optional argument when you run git clone (you replace the [...] with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Once you have cloned the repo, change into the directory and install the project dependencies. Run `npm install` to install project dependencies.
-1. Run `open src/index.html` in the terminal to see the HTML page (you should see some boilerplate HTML displayed on the page)
-1. Make sure both members of your team are collaborators on the forked repo.
 
-## Testing
+## Data Model 
 
-There is no boilerplate for testing in this starter-kit repo. You will need to set this up yourself. However, if you ran `npm install`, then the tooling you need to start testing is already installed (`mocha` and `chai`).
+With 4 datasets to pull from we decided to create our class structure with 8 main classes in the spirit of SRP. Each dataset has
+a respective repository which is then able to pass on information of a particular user, to another user class for each dataset.
 
-## Linting Your Code
+Here is the general lay out of each dataset 
 
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit, but that's ok - the linter is still running successfully.
-
-Your linter will look only at the JavaScript files you have within the `src` and the `test` directories.
-
-## Data Model
 
 **Users**
 
@@ -80,3 +74,54 @@ Your linter will look only at the JavaScript files you have within the `src` and
   ...more sleep data
 ]
 ```
+
+
+## Class Structure 
+
+As mentioned earlier we went with 8 object classes to handle and manipulate the dataset we were working with. 4 of the datasets are representations of the datasets themselves and had methods of their own that would gather averages of all users, to be displayed in
+our other users section of the dashboard. The other 4 object classes were meant to display and manipulate the data of a particular user. 
+
+Here is one such example: 
+
+```
+class Hydro {
+  constructor(data) {
+    this.data = data
+  }
+
+  findAvgFluidOunces() {
+    let avg = this.data.reduce((acc, day) => {
+      acc += day.numOunces
+      return acc
+    }, 0)
+    return Math.round(avg / this.data.length)
+  }
+
+  findFluidDate(date) {
+    let day = this.data.find(element => element.date === date)
+    return day.numOunces
+  }
+
+  findFluidWeek(date) {
+    let index = this.data.findIndex(element => element.date === date)
+    let week = this.data.slice(index, (index + 7))
+    return week.map(day => {
+      return day.numOunces
+    });
+  }
+}
+if (typeof module !== 'undefined'){
+module.exports = Hydro;
+}
+```
+
+
+
+
+## Dashboard UX / UI 
+
+We used CSS grid to display each data set as its own section/column. For the information that spans a week we utilized the 
+charts.js framework to add some data visualization to the data. We went with a blue themed background with a white foreground to 
+convey a sense of healthiness and fitness. We have the site preloaded to load the last day of the datasets, but provide the option for
+users to change the date using a jquery datepicker widget. Overall, I believe we have a straightforward dashboard that presents all
+the information neatly and beautifully.
