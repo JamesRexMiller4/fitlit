@@ -125,3 +125,11 @@ charts.js framework to add some data visualization to the data. We went with a b
 convey a sense of healthiness and fitness. We have the site preloaded to load the last day of the datasets, but provide the option for
 users to change the date using a jquery datepicker widget. Overall, I believe we have a straightforward dashboard that presents all
 the information neatly and beautifully.
+
+![fitLit-dashboard](https://user-images.githubusercontent.com/27719824/66975746-b40e3c00-f05c-11e9-9d21-dbce2370ac86.png)
+
+
+
+Using the datepicker, the dashboard and charts update to reflect the new data from that time period.
+
+![2019-10-16 21 35 32](https://user-images.githubusercontent.com/27719824/66975843-fe8fb880-f05c-11e9-8467-671654a3d797.gif)
