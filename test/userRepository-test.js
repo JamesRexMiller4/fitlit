@@ -6,10 +6,6 @@ const data = require('../data/users.js');
 
 
 describe('UserRepo', function() {
-  it('Should be a function', function() {
-    let userRepository = new UserRepository(data)
-  });
-
   it('Should find a user', function() {
     let userRepository = new UserRepository(data)
     expect(userRepository.users.length).to.equal(50)
@@ -27,6 +23,5 @@ describe('UserRepo', function() {
   it('Should find average step goal of all users', function() {
     let userRepository = new UserRepository(data)
     expect(userRepository.calculateAverageStepGoal()).to.equal(6700);
-    // console.log(userRepository.calculateAverageStepGoal());
   });
 });
