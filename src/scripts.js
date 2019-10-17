@@ -7,6 +7,10 @@ let userRepository = undefined;
 let hydroRepository = undefined;
 let sleepRepository = undefined;
 let activityRepository = undefined;
+let myChartHydro = undefined;
+let myChartMinActive = undefined;
+let myChartStairs = undefined;
+let myChartSteps = undefined;
 
 function getRandomNum() {
   randomNum = Math.floor((Math.random() * 50) + 1);
@@ -25,8 +29,12 @@ $(window).on('load', function () {
 
 $('.datepicker_button').on('click', function() {
   let date = $('#datepicker').val()
-  console.log(date)
-  graphs(date)
+
+  addData(myChartHydro, hydro.findFluidWeek(date));
+  addData(myChartMinActive, activity.minActiveWeek(date));
+  addData(myChartStairs, activity.stairsWeek(date));
+  addData(myChartSteps, activity.stepsWeek(date));
+
   $('.hydro_day').text(`${hydro.findFluidDate(date)} ounces!`);
   $('.sleep_date').text(date);
   $('.sleep_hours_day').text(`${sleep.findHoursDay(date)} hours!`);
@@ -76,7 +84,7 @@ function eventHandler() {
 
 function graphs(date = '2019/09/15') {
   var ctx = document.getElementById("myChartHydro").getContext('2d');
-  var myChartHydro = new Chart (ctx, {
+  myChartHydro = new Chart (ctx, {
     type: 'line',
     data: {
       labels: ["Day-1", "Day-2", "Day-3", "Day-4", "Day-5", "Day-6", "Day-7"],
@@ -117,7 +125,7 @@ function graphs(date = '2019/09/15') {
   
 
   var ctx = document.getElementById("myChartStairsWeek").getContext('2d');
-  var myChartStairs = new Chart (ctx, {
+  myChartStairs = new Chart (ctx, {
     type: 'line',
     data: {
       labels: ["Day-1", "Day-2", "Day-3", "Day-4", "Day-5", "Day-6", "Day-7"],
@@ -158,7 +166,7 @@ function graphs(date = '2019/09/15') {
 
 
   var ctx = document.getElementById("myChartStepsWeek").getContext('2d');
-  var myChartSteps = new Chart (ctx, {
+  myChartSteps = new Chart (ctx, {
     type: 'bar',
     data: {
       labels: ["Day-1", "Day-2", "Day-3", "Day-4", "Day-5", "Day-6", "Day-7"],
@@ -198,7 +206,7 @@ function graphs(date = '2019/09/15') {
 });
     
   var ctx = document.getElementById("myChartMinActiveWeek").getContext('2d');
-  var myChartMinActive = new Chart (ctx, {
+  myChartMinActive = new Chart (ctx, {
     type: 'bar',
     data: {
       labels: ["Day-1", "Day-2", "Day-3", "Day-4", "Day-5", "Day-6", "Day-7"],
@@ -237,6 +245,13 @@ function graphs(date = '2019/09/15') {
     }
   });
 }
+
+function addData(chart, dataArray) {
+  chart.data.datasets[0].data = dataArray;
+  chart.update();
+}
+
+
 
 
 function makeUsers(data) {

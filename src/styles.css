@@ -116,6 +116,13 @@ h2 {
   display: block;
 }
 
+button {
+    border: 1px solid;
+    border-color: #2b3e72;
+    background-color: #2b3e72;
+    color: #ffffff;
+}
+
 div {
   display: inline-block;
   border: 5px solid;
@@ -133,30 +140,35 @@ p {
   display: inline-block;
   width: 10%;
   height: 10%;
-  margin-left: 60px;
   margin-bottom: -3px;
 }
 
 .fa-tint {
-  width: 5%;
-  height: 5%;
+  width: 5.5%;
+  height: 5.5%;
+  margin-left: 30px;
 }
 
 .fa-running {
   width: 7%;
   height: 7%;
+  margin-left: 10px;
+}
+
+.fa-snooze {
   margin-left: 30px;
 }
 
 .fa-user {
   width: 6%;
   height: 6%;
-  margin-left: 80px;
+  margin-left: 55px;
 }
 
 .fa-users {
   width: 3%;
   height: 3%;
+  margin-left: 20px;
 }
 
 #ui-datepicker-div {
@@ -177,10 +189,6 @@ span.ui-icon {
 span.ui-icon:hover {
   color: blue;
   cursor: pointer;
-}
-
-.div_chart {
-  margin-left: 20px;
 }
 
 .div_activity_section {
